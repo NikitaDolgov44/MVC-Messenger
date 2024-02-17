@@ -1,4 +1,4 @@
-package com.intellekta.demo.jpa;
+package com.intellekta.messenger.jpa;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,27 +9,22 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 @Entity
-@Table("sale")
+@Table(name = "messages")
 @NoArgsConstructor
 @Getter
 @Setter
-public class JPASale {
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column("amount")
-    private double amount;
+    @Column("text")
+    private String text;
 
-    @Temporal(TemporalType.DATE)
-    @Column("purchase_date")
-    private Date purchaseDate;
+    @Column("sender_name")
+    private String senderName;
 
-    @Temporal(TemporalType.DATE)
-    @Column("sale_date")
-    private Date saleDate;
-
-    @Column("product_id")
-    private int productId;
-
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column("sent_at")
+    private Date sentAt;
 }

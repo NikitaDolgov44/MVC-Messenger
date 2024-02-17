@@ -1,9 +1,10 @@
 spring:
-  debug: true
+  resources:
+    static-locations: classpath:/static/
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/testconnect
+    url: jdbc:mysql://127.0.0.1:3306/messenger
     username: root
-    password: 12345
+    password: 55ca219fcb1e
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
@@ -13,4 +14,4 @@ spring:
   main:
     allow-bean-definition-overriding: true
   server:
-    port: 8081
+    port: 8080
