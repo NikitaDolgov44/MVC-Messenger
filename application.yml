@@ -1,17 +1,20 @@
 spring:
-  resources:
-    static-locations: classpath:/static/
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/messenger
+    url: jdbc:mysql://127.0.0.1:3306/Messenger
     username: root
     password: 55ca219fcb1e
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    hibernate:
-      ddl-auto: update
+    properties:
+      javax.persistence.schema-generation.database.action: update
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
     show-sql: true
   main:
     allow-bean-definition-overriding: true
-  server:
-    port: 8080
+server:
+  port: 8080

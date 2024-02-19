@@ -26,7 +26,10 @@ public class MessageController {
     public String showHomePage(Model model) {
         return "home";
     }
-
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "redirect:/";
+    }
     @GetMapping("/messages")
     public String showMessagesPage(Model model, @RequestParam(value = "filterName", required = false) String filterName) {
         if (filterName != null && !filterName.isEmpty()) {
@@ -41,7 +44,7 @@ public class MessageController {
     @PostMapping("/saveSenderName")
     public String saveSenderName(@RequestParam("senderName") String senderName, HttpSession session) {
         session.setAttribute("senderName", senderName);
-        return "redirect:/";
+        return "redirect:/"; // Перенаправляем на корневой путь
     }
 
 
