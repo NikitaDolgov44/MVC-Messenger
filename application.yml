@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   resources:
     static-locations: classpath:/static/
   datasource:
@@ -11,7 +13,5 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  main:
-    allow-bean-definition-overriding: true
   server:
     port: 8080

@@ -10,7 +10,5 @@ import org.springframework.context.annotation.ComponentScan;
 public class MessengerApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(MessengerApplication.class, args);
-        MessageRepository saleRepository = context.getBean(MessageRepository.class);
-        saleRepository.deleteAll();
     }
 }
