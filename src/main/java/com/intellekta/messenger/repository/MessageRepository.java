@@ -1,5 +1,6 @@
-package com.intellekta.messenger.jpa;
+package com.intellekta.messenger.repository;
 
+import com.intellekta.messenger.entity.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

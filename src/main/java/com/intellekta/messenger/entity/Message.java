@@ -1,4 +1,4 @@
-package com.intellekta.messenger.jpa;
+package com.intellekta.messenger.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
