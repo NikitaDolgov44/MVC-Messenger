@@ -1,8 +1,5 @@
-package com.intellekta.messenger.controller;
+package com.intellekta.messenger.jpa;
 
-import com.intellekta.messenger.entity.Message;
-import com.intellekta.messenger.entity.User;
-import com.intellekta.messenger.repository.MessageRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,16 +45,14 @@ public class MessageController {
 
     @PostMapping("/send")
     public String addMessage(@RequestParam("text") String text, HttpSession session) {
-        User loggedInUser = (User) session.getAttribute("loggedInUser");
-        if (loggedInUser != null) {
-            Message message = new Message();
-            message.setText(text);
-            message.setSenderName(loggedInUser.getUsername());
-            message.setSentAt(new Date());
-            messageRepository.save(message);
-            return "redirect:/messages";
-        }
-        return "redirect:/login"; // If user is not logged in, redirect to login
+        String senderName = (String) session.getAttribute("senderName");
+
+        Message message = new Message();
+        message.setText(text);
+        message.setSenderName(senderName);
+        message.setSentAt(new Date());
+        messageRepository.save(message);
+        return "redirect:/messages";
     }
 
     @GetMapping("/clearSession")
