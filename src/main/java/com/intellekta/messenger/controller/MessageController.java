@@ -1,5 +1,7 @@
-package com.intellekta.messenger.jpa;
+package com.intellekta.messenger;
 
+import com.intellekta.messenger.entity.Message;
+import com.intellekta.messenger.repository.MessageRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
