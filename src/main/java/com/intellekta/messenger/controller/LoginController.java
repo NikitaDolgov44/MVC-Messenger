@@ -28,15 +28,16 @@ public class LoginController {
                         HttpSession session) {
         User user = userRepository.findByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
-            session.setAttribute("loggedInUser", user); // Store user in session
-            return "redirect:/messages";
+            session.setAttribute("loggedInUser", user);
+            return "redirect:/home"; // Перенаправление на главную страницу
         }
-        return "redirect:/login?error"; // Redirect back on failure
+        return "redirect:/login?error=wrongpassword"; // Указываем ошибку в параметрах
     }
 
+
     @GetMapping("/register")
-    public String showRegistrationPage() {
-        return "register"; // View for registration form
+    public String showRegisterPage() {
+        return "register"; // Return registration page
     }
 
     @PostMapping("/register")
@@ -45,16 +46,19 @@ public class LoginController {
         if (userRepository.findByUsername(username) == null) {
             User newUser = new User();
             newUser.setUsername(username);
-            newUser.setPassword(password); // Make sure to hash passwords in a real app
+            newUser.setPassword(password); // Hash passwords in a real app
             userRepository.save(newUser);
-            return "redirect:/login";
+            return "redirect:/login"; // Redirect to login page after registration
         }
-        return "redirect:/register?error";
+        return "redirect:/register?error"; // Return to registration page on error
     }
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // Invalidate the session to log out
-        return "redirect:/login";
+        return "redirect:/login"; // Redirect to login page
     }
 }
+
+
+

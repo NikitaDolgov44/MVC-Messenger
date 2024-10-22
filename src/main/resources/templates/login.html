@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" th:href="@{/css/login.css}">
-  <script src="/js/login.js" defer></script> <!-- Подключаем скрипт входа -->
+  <link th:href="@{/css/login.css}" rel="stylesheet">
 </head>
 <body>
 <div class="login-container">
-  <h1>Login</h1>
-  <div id="messageContainer" class="message"></div> <!-- Контейнер для сообщений об ошибках -->
+  <h1>Вход</h1>
   <form id="loginForm" action="/login" method="post">
-    <label for="username">Username:</label>
+    <label for="username">Имя пользователя:</label>
     <input type="text" id="username" name="username" required>
-
-    <label for="password">Password:</label>
+    <label for="password">Пароль:</label>
     <input type="password" id="password" name="password" required>
-
-    <button type="submit">Login</button>
+    <button type="submit">Войти</button>
   </form>
-  <p><a th:href="@{/register}">Register here</a></p>
+
+  <div th:if="${param.error}" class="message">
+    <p th:text="${param.error == 'wrongpassword' ? 'Неверный пароль' : 'Пользователь не найден'}"></p>
+  </div>
 </div>
 </body>
 </html>

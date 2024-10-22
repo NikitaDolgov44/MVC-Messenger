@@ -1,33 +1,40 @@
-// registration.js
+document.addEventListener("DOMContentLoaded", function() {
+    const registrationForm = document.getElementById("registrationForm");
+    const messageContainer = document.getElementById("messageContainer");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const registrationForm = document.getElementById('registrationForm');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const messageContainer = document.getElementById('messageContainer');
+    registrationForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Остановить обычное поведение формы
 
-    registrationForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // предотвращаем стандартное поведение формы
+        const formData = new FormData(registrationForm);
+        const requestOptions = {
+            method: "POST",
+            body: formData
+        };
 
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        // Проверка на пустые поля
-        if (!username || !password) {
-            displayMessage('Логин и пароль не могут быть пустыми.', 'error');
-            return;
-        }
-
-        // Здесь может быть AJAX-запрос для проверки уникальности логина
-        // Если логин занят:
-        // displayMessage('Логин уже занят. Пожалуйста, выберите другой.', 'error');
-
-        // Если всё хорошо, отправляем форму
-        registrationForm.submit();
+        fetch(registrationForm.action, requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(data => {
+                        showMessage(data.message, "error");
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    showMessage("Регистрация успешна!", "success");
+                    // Можно перенаправить пользователя на страницу входа или главную
+                    window.location.href = "/login"; // перенаправление
+                }
+            })
+            .catch(error => {
+                showMessage("Произошла ошибка. Пожалуйста, попробуйте позже.", "error");
+            });
     });
 
-    function displayMessage(message, type) {
+    function showMessage(message, type) {
         messageContainer.textContent = message;
-        messageContainer.className = type; // можно задать стили для 'error' и 'success'
+        messageContainer.className = `message ${type}`; // Добавляем класс для стилизации
+        messageContainer.style.display = "block"; // Отображаем сообщение
     }
 });

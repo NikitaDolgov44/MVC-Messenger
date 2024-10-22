@@ -16,8 +16,11 @@ public class User {
     private Integer id;
 
     @Column(nullable = false, unique = true)
-    private String username;
+    private String username; // Логин, неизменяемый
 
     @Column(nullable = false)
-    private String password; // Consider using encryption for storing passwords
+    private String password; // Пароль
+
+    @Column(nullable = true)
+    private String nickname; // Никнейм, который можно изменять на странице home
 }
