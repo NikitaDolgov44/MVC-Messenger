@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:if="${loggedInUser != null}">Добро пожаловать, <span th:text="${loggedInUser.nickname != null ? loggedInUser.nickname : loggedInUser.username}"></span>!</h1>
+    <h1 th:if="${loggedInUser != null}">Добро пожаловать, <span th:text="${loggedInUser.username}"></span>!</h1>
     <h1 th:if="${loggedInUser == null}">Пожалуйста, войдите в систему.</h1>
 
     <!-- Форма для изменения никнейма -->
