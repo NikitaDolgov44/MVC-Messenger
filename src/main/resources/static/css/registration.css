@@ -1,4 +1,4 @@
-/* Контейнер для входа */
+/* Контейнер для регистрации */
 .vbox-container {
     -fx-alignment: center;  /* Центрируем содержимое */
     -fx-padding: 40px;
@@ -21,22 +21,16 @@
     -fx-pref-width: 300px;
 }
 
-/* Кнопка входа */
+/* Кнопка регистрации */
 .primary-button {
-    -fx-background-color: #007bff;
+    -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-padding: 8px 16px; /* уменьшаем padding для уменьшения размера */
     -fx-border-radius: 4px;
     -fx-font-size: 14px; /* уменьшаем шрифт */
 }
 
-/* Ошибки и сообщения */
-.error-message {
-    -fx-text-fill: red;
-    -fx-padding: 10px;
-}
-
-/* Стили для ссылок и других элементов */
+/* Ссылка на вход (менее заметная) */
 .link {
     -fx-text-fill: #007bff;
     -fx-font-size: 14px;
@@ -44,3 +38,8 @@
     -fx-padding: 5px;
 }
 
+/* Стиль для ошибки (если нужно отображать ошибку) */
+.error-message {
+    -fx-text-fill: red;
+    -fx-padding: 10px;
+}
