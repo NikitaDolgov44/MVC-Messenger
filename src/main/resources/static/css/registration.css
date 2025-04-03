@@ -1,36 +1,37 @@
-/* Контейнер для регистрации */
 .vbox-container {
-    -fx-alignment: center;  /* Центрируем содержимое */
+    -fx-alignment: center;
     -fx-padding: 40px;
     -fx-spacing: 20px;
     -fx-background-color: #f2f2f2;
 }
 
-/* Заголовок */
 .title {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
 }
 
-/* Поля ввода */
 .input-field {
     -fx-padding: 8px;
-    -fx-border-color: #ccc;
+    -fx-border-color: #cccccc;
     -fx-border-radius: 4px;
     -fx-font-size: 14px;
     -fx-pref-width: 300px;
 }
 
-/* Кнопка регистрации */
 .primary-button {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
-    -fx-padding: 8px 16px; /* уменьшаем padding для уменьшения размера */
+    -fx-padding: 8px 16px;
     -fx-border-radius: 4px;
-    -fx-font-size: 14px; /* уменьшаем шрифт */
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
 }
 
-/* Ссылка на вход (менее заметная) */
+.primary-button:hover {
+    -fx-background-color: #45a049;
+}
+
 .link {
     -fx-text-fill: #007bff;
     -fx-font-size: 14px;
@@ -38,8 +39,12 @@
     -fx-padding: 5px;
 }
 
-/* Стиль для ошибки (если нужно отображать ошибку) */
+.link:hover {
+    -fx-underline: true;
+}
+
 .error-message {
-    -fx-text-fill: red;
-    -fx-padding: 10px;
+    -fx-text-fill: #ff0000;
+    -fx-font-size: 12px;
+    -fx-padding: 5px;
 }

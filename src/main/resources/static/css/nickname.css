@@ -1,0 +1,29 @@
+.container {
+    -fx-padding: 20;
+    -fx-background-color: #f2f2f2;
+}
+
+.welcome-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+}
+
+.input-field {
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-pref-width: 250px;
+}
+
+.submit-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
